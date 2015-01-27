@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PersonCell" customModule="Photog" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrt-RT-Gf9">
+                        <rect key="frame" x="10" y="10" width="118" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esI-N7-yqe">
+                        <rect key="frame" x="211" y="0.0" width="109" height="57"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="109" id="Gg8-Un-kam"/>
+                            <constraint firstAttribute="height" priority="750" constant="57" id="Hpm-o2-GyN"/>
+                        </constraints>
+                        <state key="normal" image="FollowButton">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="didTapFollow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hA1-L2-fDK"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="esI-N7-yqe" secondAttribute="trailing" id="RrY-xc-f3i"/>
+                    <constraint firstItem="esI-N7-yqe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="THT-wk-dnh"/>
+                    <constraint firstAttribute="bottom" secondItem="esI-N7-yqe" secondAttribute="bottom" id="cTd-Hz-mwD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="followButton" destination="esI-N7-yqe" id="xRl-o7-FGw"/>
+                <outlet property="usernamelbl" destination="Nrt-RT-Gf9" id="rFo-Ga-WN0"/>
+            </connections>
+            <point key="canvasLocation" x="288" y="183"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="FollowButton" width="109" height="57"/>
+    </resources>
+</document>

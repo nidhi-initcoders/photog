@@ -16,7 +16,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.setupParse()
+        self.setUpAppearance()
+        self.window=UIWindow(frame: UIScreen.mainScreen().bounds)
+      
+        var navigationController=UINavigationController()
+        var startViewController=StartViewController(nibName: "StartViewController" ,bundle:nil)
+        
+        if PFUser.currentUser() == nil
+        {
+            navigationController.viewControllers=[startViewController]
+        }
+        else
+        {
+            println("we have a user")
+            var tabBar = TabBarController()
+            navigationController.viewControllers = [startViewController ,tabBar]
+            
+        }
+
+   //     var viewController=UIViewController()
+   //     viewController.view.backgroundColor=UIColor.magentaColor()
+        
+        self.window!.rootViewController=navigationController
+        self.window!.makeKeyAndVisible()
+       
+        
+        
         return true
+    }
+    
+    func setupParse() {
+        Parse.setApplicationId("rqV5n9G6hEnz3M3yJJ1gfPZQwAbO5GFzePrpqv9H", clientKey: "5vZJgYvkHdLDymfvzjZNkGQ7o53Ie5oalexDPfxp")
+        
+//        var testObject = PFObject(className: "TestObject1")
+//        testObject["foo"] = "bar"
+//        testObject.save()
+
+        
+    }
+    
+    func setUpAppearance()
+    {
+    
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UINavigationBar.appearance().barTintColor=UIColor.blackColor();
+        UINavigationBar.appearance().tintColor=UIColor.whiteColor();
+        
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UITabBar.appearance().barTintColor = UIColor.blackColor()
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().selectionIndicatorImage = UIImage(named: "SelectedTabBackground")
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
